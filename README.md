@@ -10,6 +10,49 @@ When abnormal activity is detected, the system:
 - Sends a **mail alert** to the homeowner.
 - **Attaches the suspicious frame** as an image.
 - Stores the images for future references.
+  **Project Structure**:
+  📦 ViolenceDetectionProject/
+│
+├─ 🗃️ `db.sqlite3` – Default Django database  
+├─ 🧠 `labels.npy` – Encoded labels for classification  
+├─ ⚙️ `manage.py` – Django project manager script  
+├─ 🤖 `my_model.h5` – Trained machine learning model (v1)  
+├─ 🤖 `my_model_2.h5` – Trained machine learning model (v2)  
+├─ 📦 `requirement.txt` – List of Python dependencies  
+├─ 🎥 `video_files_paths.npy` – Stored paths for video inputs  
+├─ 🖼️ `webcam_frame.txt` – Temp storage for webcam frames  
+│
+├─ 📓 Jupyter Notebooks – For training & testing models  
+│   ├─ 🧪 `video-violence-guard-transfer-learning.ipynb`  
+│   ├─ 🧪 `video_testing.ipynb`  
+│   └─ 🧪 `violence-detection-mobilenet-model.ipynb`  
+│
+├─ 🗂️ `violence_detection/` – App-level static files  
+│   └─ 🖼️ `static/images/surveillance_image.png`  
+│
+├─ 🐍 `venv/` – Python virtual environment  
+│   ├─ 📁 Lib/  
+│   ├─ 📁 Scripts/  
+│   ├─ 📁 share/  
+│   └─ 📄 pyvenv.cfg  
+│
+├─ 🌐 `ViolenceDetection/` – Django project root  
+│   ├─ 🔧 `home/` – Core app logic and backend  
+│   │   ├─ 🧠 `models.py` – ML model integration  
+│   │   ├─ 📩 `email_alert.py`, `send_alert_email.py` – Email alert logic  
+│   │   ├─ 👁️ `views.py` – Handles real-time video monitoring  
+│   │   ├─ ⚙️ `config.json` – Detection configs  
+│   │   ├─ 🌐 `urls.py`, `admin.py`, `apps.py`, `tests.py`  
+│   │   ├─ 🖼️ `suspicious_frame.jpg`, `suspicious_image.jpg`  
+│   │   └─ 📁 `migrations/`, `__pycache__/`, `__init__.py`  
+│   │
+│   ├─ 📂 `media/` – Captured/generated media (frames)  
+│   └─ 🖼️ `templates/` – HTML templates  
+│       ├─ 🧱 `base.html`, `navbar.html`  
+│       ├─ 🏠 `index.html`, `upload.html`, `result.html`  
+│       ├─ 🔴 `realtime.html` – Real-time monitoring page  
+│       └─ 🖼️ `bgimage.jpg`, `surveillance.png`  
+
 
 ---
 
@@ -44,72 +87,6 @@ When abnormal activity is detected, the system:
 - Uses datasets:
   - **Avenue Dataset**
   - **UCSD Anomaly Detection Dataset**
-
----
-
-## 🛠️ Project Structure
-
-Here’s an overview of the folder structure:
-
-ViolenceDetectionProject/
-│
-├── db.sqlite3                            # Django default database
-├── labels.npy                            # Encoded labels for classification
-├── manage.py                             # Django project manager
-├── my_model.h5                           # Trained ML model (version 1)
-├── my_model_2.h5                         # Trained ML model (version 2)
-├── requirement.txt                       # Python dependencies
-├── video_files_paths.npy                 # List of video file paths
-├── webcam_frame.txt                      # Temp storage for webcam frame
-│
-├── *.ipynb                               # Jupyter notebooks for model training/testing
-│   ├── video-violence-guard-transfer-learning.ipynb
-│   ├── video_testing.ipynb
-│   └── violence-detection-mobilenet-model.ipynb
-│
-├── violence_detection/                   # App-level assets
-│   └── static/
-│       └── images/
-│           └── surveillance_image.png
-│
-├── venv/                                 # Python virtual environment
-│   ├── Lib/
-│   ├── Scripts/
-│   ├── share/
-│   └── pyvenv.cfg
-│
-├── ViolenceDetection/                    # Django project root
-│   ├── home/                             # Core Django app
-│   │   ├── __pycache__/
-│   │   ├── migrations/
-│   │   │   └── 0001_initial.py
-│   │   ├── __init__.py
-│   │   ├── admin.py
-│   │   ├── apps.py
-│   │   ├── config.json                   # Configs for detection
-│   │   ├── email_alert.py                # Alert logic via email
-│   │   ├── send_alert_email.py
-│   │   ├── models.py
-│   │   ├── views.py                      # Real-time logic and views
-│   │   ├── urls.py
-│   │   ├── tests.py
-│   │   ├── surveillance_image.png
-│   │   ├── suspicious_image.jpg
-│   │   └── suspicious_frame.jpg
-│   │
-│   ├── media/                            # Uploaded or generated media files
-│   │
-│   └── templates/                        # HTML templates for frontend
-│       ├── base.html
-│       ├── bgimage.jpg
-│       ├── index.html
-│       ├── navbar.html
-│       ├── realtime.html                # 🔴 Real-time Monitoring Interface
-│       ├── result.html
-│       ├── surveillance.png
-│       └── upload.html
- 
-
 ## 🔧 Installation Instructions
 
 ```bash
