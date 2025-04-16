@@ -4,7 +4,7 @@
 
 Object Action Detection is an intelligent **video surveillance system** developed to strengthen **home security** by detecting **abnormal human activities** from **recorded video footage**. The system uses deep learning (Spatial Autoencoder) to analyze actions and identify suspicious behavior in indoor settings.
 
-Instead of real-time surveillance, the system works with **pre-recorded videos**. It processes the video to detect abnormal actions (like theft or violence) and captures **key frames** where suspicious activity occurs.
+Instead of real-time surveillance, the system works with **pre-recorded videos** and **real-time detection** using device camera.. It processes the video to detect abnormal actions (like theft or violence) and captures **key frames** where suspicious activity occurs.
 
 When abnormal activity is detected, the system:
 - Sends a **mail alert** to the homeowner.
